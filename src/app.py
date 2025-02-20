@@ -16,60 +16,14 @@ def inference(niche, locations, role):
         "role": role,
     })
     df = pd.DataFrame.from_dict(results['final_sheet'])
-    # df = pd.DataFrame({
-    #     "name": ["Clínica de Psicologia", "RD Clínica de Psicologia"],
-    #     "phone": ["(11) 9999-9999", "(11) 9999-9999"],
-    #     "website": ["https://www.clinicadepsicologia.com.br", "https://www.rdclinicadepsicologia.com.br"],
-    #     "address": ["Rua dos Bobos, 0", "Rua dos Bobos, 0"],
-    #     "summary": ["""**Sobre a Clínica de Psicologia**
 
-    #     A Clínica de Psicologia tem um endereço em Bauru, Estado de São Paulo, Brasil, e pode ser contatada pelo telefone (14) 99198-4885. Seu site está vazio, o que pode dificultar a busca por informações sobre a clínica e serviços oferecidos.
-
-    #     **Resumo da aparência online**
-
-    #     A clínica não tem uma presença online definida, pois seu site está vazio. No entanto, pode ter uma presença nos principais motores de busca, como Google, se estiver utilizando técnicas de SEO (Search Engine Optimization).
-
-    #     **Sugestão para melhorar a presença online**
-
-    #     Um desenvolvedor web pode ajudar a Clínica de Psicologia a melhorar sua presença online de várias maneiras:
-
-    #     1. **Desenvolver um site**: Criar um site com informações sobre a clínica, serviços oferecidos, equipe de profissionais, horários de funcionamento e contato.
-    #     2. **Mapear a experiência do usuário**: Melhorar a navegação e a usabilidade do site para que os usuários possam encontrar facilmente as informações que precisam.
-    #     3. **Otimizar para motores de busca**: Utilizar técnicas de SEO para que a clínica apareça nos primeiros resultados da busca nos principais motores de busca.
-    #     4. **Gerenciar a presença nos redes sociais**: Criar e gerenciar contas nas principais redes sociais para que a clínica possa se conectar com seus clientes e potenciais clientes.
-    #     5. **Integrar ferramentas de gestão de agendamento**: Integrar ferramentas de gestão de agendamento para que os clientes possam agendar consultas online.
-
-    #     Essas são apenas algumas sugestões para melhorar a presença online da Clínica de Psicologia. Um desenvolvedor web pode ajudar a clínica a criar uma presença online forte e eficaz.""",
-    #     """**Resumo da aparência online da clínica de psicologia:**
-
-    #     A clínica de psicologia "RD Clínica de Psicologia" parece não ter uma presença online oficial, pois as informações disponíveis são limitadas. No entanto, com base nas informações fornecidas, podemos inferir que:
-
-    #     * Ela não tem um site oficial (website = []).
-    #     * Não há informações sobre redes sociais ou outras plataformas online.
-
-    #     **Sugestão para um desenvolvedor web:**
-
-    #     Para ajudar a clínica de psicologia a melhorar sua presença online, eu sugeriria:
-
-    #     1. **Desenvolver um site oficial**: Crie um site simples e intuitivo que forneça informações básicas sobre a clínica, como serviços oferecidos, equipe de psicólogos, contatos, etc.
-    #     2. **Implementar redes sociais**: Crie perfis nas principais redes sociais (Facebook, Instagram, Twitter, etc.) e atualize-as regularmente com conteúdo relevante, como notícias, dicas de saúde mental, etc.
-    #     3. **Otimizar para SEO**: Ajuste o site para que ele seja mais visível nas buscas do Google, utilizando palavras-chave relevantes e otimizando a estrutura do site.
-    #     4. **Integrar sistema de agendamento online**: Desenvolva um sistema de agendamento online que permita aos pacientes marcar consultas de forma fácil e rápida.
-    #     5. **Mantenha a consistência**: Certifique-se de que a presença online seja atualizada regularmente para manter a consistência e a credibilidade da clínica.
-
-    #     Essas sugestões podem ajudar a clínica de psicologia a melhorar sua presença online e atrair mais pacientes."""]
-    #         })
-
-    # Create Excel file in memory
     temp_dir = tempfile.gettempdir()
     temp_path = os.path.join(temp_dir, "output.xlsx")
     
-    # Save DataFrame to Excel file
     df.to_excel(temp_path, index=False)
 
     
 
-    # Create Markdown table from DataFrame
     html_df = df
     if 'summary' in html_df.columns:
         # Replace newlines with spaces
@@ -108,7 +62,6 @@ def inference(niche, locations, role):
 
     html_table = styles + html_table
 
-    # Replace Markdown bold with HTML bold
     html_table = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html_table)
 
     return (html_table, temp_path)
