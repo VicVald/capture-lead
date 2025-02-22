@@ -48,7 +48,7 @@ capture-lead/
 1. Clonar o respositório
 
    ```
-   git clone https://github.com/Vicvald/lead-capture.git
+   https://github.com/VicVald/capture-lead.git
    cd lead-capture
    ```
 2. Configure as variáveis de ambiente
@@ -59,9 +59,9 @@ capture-lead/
 3. Coloque suas chaves de API
 
    ```
-   SERPAPI_KEY = sua_chave_serpapi
-   TAVILY_API_KEY = sua_chave_tavily
-   GROQ_API_KEY = sua_chave_groq
+   SERPAPI_KEY = sua_chave_serpapi | https://serpapi.com/manage-api-key
+   TAVILY_API_KEY = sua_chave_tavily | https://app.tavily.com/home
+   GROQ_API_KEY = sua_chave_groq | https://console.groq.com/keys
    ```
 4. Construa sua imagem Docker
 
@@ -78,7 +78,7 @@ capture-lead/
 
 ---
 
-Após iniciar a aplicação com **gradio app.py** adicione as informações da sua busca:
+Após iniciar a aplicação com no navegador adicione as informações da sua busca:
 
 - Niche: Palavra-chave para fazer a busca de empresas
 - Locations: Lista de cidades para fazer a busca
