@@ -12,7 +12,7 @@ def inference(niche, locations, role):
     results = app.invoke({
         "niche": niche,
         "locations": locations,
-        "limit_per_location": 4,
+        "limit_per_location": 20, #default limit in google maps
         "role": role,
     })
     df = pd.DataFrame.from_dict(results['final_sheet'])
