@@ -48,8 +48,8 @@ capture-lead/
 1. Clonar o respositório
 
    ```
-   https://github.com/VicVald/capture-lead.git
-   cd lead-capture
+   git clone https://github.com/VicVald/capture-lead.git
+   cd capture-lead
    ```
 2. Configure as variáveis de ambiente
 
